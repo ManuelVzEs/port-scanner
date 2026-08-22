@@ -82,7 +82,7 @@ def scan(target: str, start_port: int, end_port: int, timeout: float):
         if scan_port(ip, port, timeout):
             service = COMMON_PORTS.get(port, "Desconocido")
             is_dangerous = port in DANGEROUS_PORTS
-            flag = "🚨" if port in [23, 3306, 3389, 5432, 6379] else "⚠️ " if is_dangerous else "  "
+            flag =  if port in [23, 3306, 3389, 5432, 6379] else if is_dangerous else 
             print(f"  [+] Puerto {port:<6} ABIERTO  ({service}) {flag if is_dangerous else ''}")
             if is_dangerous:
                 dangerous_found.append(port)
